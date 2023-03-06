@@ -3,3 +3,6 @@
 console.log(document.querySelector('.message').textContent);
 
 document.querySelector('.message').textContent = '🎉 Voce Acertou!';
+
+document.querySelector('.number').textContent = 13;
+document.querySelector('.score').textContent = 20;
