@@ -13,4 +13,9 @@
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
   console.log(guess, typeof guess);
+
+  // caso não tenha um numero digitado
+  if (!guess) {
+    document.querySelector('.message').textContent = ' Digite um numero!!';
+  }
 });
