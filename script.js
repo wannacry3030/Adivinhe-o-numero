@@ -22,5 +22,9 @@ document.querySelector('.check').addEventListener('click', function () {
     document.querySelector('.message').textContent = ' Digite um numero!!';
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Voce Acertou!';
+  } else if (guess > secretNumber) {
+    document.querySelector('.message').textContent = 'Muito alto! ☝️';
+  } else if (guess < secretNumber) {
+    document.querySelector('.message').textContent = 'Muito baixo! 👇';
   }
 });
