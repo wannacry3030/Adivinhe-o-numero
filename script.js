@@ -26,9 +26,13 @@ document.querySelector('.check').addEventListener('click', function () {
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Voce Acertou!';
   } else if (guess > secretNumber) {
-    document.querySelector('.message').textContent = 'Muito alto! ☝️';
-    score = score - 1;
-    document.querySelector('.score').textContent = score;
+    if (score > 1) {
+      document.querySelector('.message').textContent = 'Muito alto! ☝️';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = 'Você perdeu 😢';
+    }
   } else if (guess < secretNumber) {
     document.querySelector('.message').textContent = 'Muito baixo! 👇';
     score = score - 1;
