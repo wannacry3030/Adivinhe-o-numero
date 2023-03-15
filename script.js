@@ -10,9 +10,21 @@
 // document.querySelector('.guess').value = 23;
 // console.log(document.querySelector('.guess').value);
 
-const secretNumber = Math.trunc(Math.random() * 20) + 1;
+let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
+
+document.querySelector('.again').addEventListener('click', function () {
+  document.querySelector('.guess').value = '';
+  document.querySelector('.message').textContent = 'Comece a adivinhar...';
+  document.querySelector('.score').textContent = '20';
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+
+  // Gerar novo número aleatório para o jogo e atualizar a variável secretNumber
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+});
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -54,6 +66,8 @@ document.querySelector('.check').addEventListener('click', function () {
 
 // DESAFIO #1
 //implementar o elemento com a classe 'again' e colocar um listener de clicks nele
+
 //na função handler, restore o valor inicial do score e da secretNumber variavel
+
 //restore as condições iniciais da mensagem, numero, score e o input do usuario
 //também restore a cor de fundo inicial #222, e a largura do numero 15rem
