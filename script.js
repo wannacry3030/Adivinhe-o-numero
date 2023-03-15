@@ -23,17 +23,21 @@ document.querySelector('.check').addEventListener('click', function () {
   // caso não tenha um numero digitado
   if (!guess) {
     document.querySelector('.message').textContent = ' Digite um numero!!';
+    // quando o jogador acerta
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Voce Acertou!';
+    //  quando o jogador chuta um numero muito alto
   } else if (guess > secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = 'Muito alto! ☝️';
       score--;
       document.querySelector('.score').textContent = score;
+      // quando o jogador perde
     } else {
       document.querySelector('.message').textContent = 'Você perdeu 😢';
       document.querySelector('.score').textContent = 0;
     }
+    // quando o jogador chuta um numero muito baixo
   } else if (guess < secretNumber) {
     if (score > 1) {
       document.querySelector('.message').textContent = 'Muito baixo! ☝️';
