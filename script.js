@@ -26,6 +26,8 @@ document.querySelector('.check').addEventListener('click', function () {
     // quando o jogador acerta
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Voce Acertou!';
+    document.querySelector('body').style.backgroundColor = '#60b437';
+    document.querySelector('.number').style.width = '30rem';
     //  quando o jogador chuta um numero muito alto
   } else if (guess > secretNumber) {
     if (score > 1) {
