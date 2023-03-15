@@ -15,9 +15,10 @@ let secretNumber = Math.trunc(Math.random() * 20) + 1;
 let score = 20;
 
 document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
   document.querySelector('.guess').value = '';
   document.querySelector('.message').textContent = 'Comece a adivinhar...';
-  document.querySelector('.score').textContent = '20';
+  document.querySelector('.score').textContent = score;
   document.querySelector('.number').textContent = '?';
   document.querySelector('body').style.backgroundColor = '#222';
   document.querySelector('.number').style.width = '15rem';
@@ -54,7 +55,7 @@ document.querySelector('.check').addEventListener('click', function () {
     // quando o jogador chuta um numero muito baixo
   } else if (guess < secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = 'Muito baixo! ☝️';
+      document.querySelector('.message').textContent = 'Muito baixo! 👇';
       score--;
       document.querySelector('.score').textContent = score;
     } else {
