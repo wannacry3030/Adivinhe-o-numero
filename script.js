@@ -13,6 +13,7 @@
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
 
 let score = 20;
+let highscore = 0;
 
 document.querySelector('.again').addEventListener('click', function () {
   score = 20;
@@ -41,6 +42,9 @@ document.querySelector('.check').addEventListener('click', function () {
 
     document.querySelector('body').style.backgroundColor = '#60b437';
     document.querySelector('.number').style.width = '30rem';
+    if (score > highscore) {
+      highscore = score;
+    }
     //  quando o jogador chuta um numero muito alto
   } else if (guess > secretNumber) {
     if (score > 1) {
