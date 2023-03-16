@@ -11,22 +11,12 @@
 // console.log(document.querySelector('.guess').value);
 
 let secretNumber = Math.trunc(Math.random() * 20) + 1;
-
 let score = 20;
 let highscore = 0;
 
-document.querySelector('.again').addEventListener('click', function () {
-  score = 20;
-  document.querySelector('.guess').value = '';
-  document.querySelector('.message').textContent = 'Comece a adivinhar...';
-  document.querySelector('.score').textContent = score;
-  document.querySelector('.number').textContent = '?';
-  document.querySelector('body').style.backgroundColor = '#222';
-  document.querySelector('.number').style.width = '15rem';
-
-  // Gerar novo número aleatório para o jogo e atualizar a variável secretNumber
-  secretNumber = Math.trunc(Math.random() * 20) + 1;
-});
+const displayMessage = function (message) {
+  document.querySelector('.message').textContent = message;
+};
 
 document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value);
@@ -34,10 +24,12 @@ document.querySelector('.check').addEventListener('click', function () {
 
   // caso não tenha um numero digitado
   if (!guess) {
-    document.querySelector('.message').textContent = ' Digite um numero!!';
+    // document.querySelector('.message').textContent = ' Digite um numero!!';
+    displayMessage('Digite um numero!!');
     // quando o jogador acerta
   } else if (guess === secretNumber) {
-    document.querySelector('.message').textContent = '🎉 Voce Acertou!';
+    // document.querySelector('.message').textContent = '🎉 Voce Acertou!';
+    displayMessage('🎉 Voce Acertou!');
     document.querySelector('.number').textContent = secretNumber;
 
     document.querySelector('body').style.backgroundColor = '#60b437';
@@ -49,13 +41,17 @@ document.querySelector('.check').addEventListener('click', function () {
     //  quando o jogador chuta um numero muito alto
   } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent =
-        guess > secretNumber ? 'Muito alto! ☝️' : 'Muito baixo! 👇';
+      // document.querySelector('.message').textContent =
+      //   guess > secretNumber ? 'Muito alto! ☝️' : 'Muito baixo! 👇';
+      displayMessage(
+        guess > secretNumber ? 'Muito alto! ☝️' : 'Muito baixo! 👇'
+      );
       score--;
       document.querySelector('.score').textContent = score;
       // quando o jogador perde
     } else {
-      document.querySelector('.message').textContent = 'Você perdeu 😢';
+      // document.querySelector('.message').textContent = 'Você perdeu 😢';
+      displayMessage('Você perdeu 😢');
       document.querySelector('.score').textContent = 0;
     }
   }
@@ -78,3 +74,17 @@ document.querySelector('.check').addEventListener('click', function () {
 
 //restore as condições iniciais da mensagem, numero, score e o input do usuario
 //também restore a cor de fundo inicial #222, e a largura do numero 15rem
+
+document.querySelector('.again').addEventListener('click', function () {
+  score = 20;
+  document.querySelector('.guess').value = '';
+  // document.querySelector('.message').textContent = 'Comece a adivinhar...';
+  displayMessage('Comece a adivinhar...');
+  document.querySelector('.score').textContent = score;
+  document.querySelector('.number').textContent = '?';
+  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('.number').style.width = '15rem';
+
+  // Gerar novo número aleatório para o jogo e atualizar a variável secretNumber
+  secretNumber = Math.trunc(Math.random() * 20) + 1;
+});
