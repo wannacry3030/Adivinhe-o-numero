@@ -47,9 +47,10 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.highscore').textContent = highscore;
     }
     //  quando o jogador chuta um numero muito alto
-  } else if (guess > secretNumber) {
+  } else if (guess !== secretNumber) {
     if (score > 1) {
-      document.querySelector('.message').textContent = 'Muito alto! ☝️';
+      document.querySelector('.message').textContent =
+        guess > secretNumber ? 'Muito alto! ☝️' : 'Muito baixo! 👇';
       score--;
       document.querySelector('.score').textContent = score;
       // quando o jogador perde
@@ -57,17 +58,17 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.message').textContent = 'Você perdeu 😢';
       document.querySelector('.score').textContent = 0;
     }
-    // quando o jogador chuta um numero muito baixo
-  } else if (guess < secretNumber) {
-    if (score > 1) {
-      document.querySelector('.message').textContent = 'Muito baixo! 👇';
-      score--;
-      document.querySelector('.score').textContent = score;
-    } else {
-      document.querySelector('.message').textContent = 'Você perdeu 😢';
-      document.querySelector('.score').textContent = 0;
-    }
   }
+  //else if (guess < secretNumber) {
+  //   if (score > 1) {
+  //     document.querySelector('.message').textContent = 'Muito baixo! 👇';
+  //     score--;
+  //     document.querySelector('.score').textContent = score;
+  //   } else {
+  //     document.querySelector('.message').textContent = 'Você perdeu 😢';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  // }
 });
 
 // DESAFIO #1
